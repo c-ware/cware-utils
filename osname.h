@@ -2,29 +2,29 @@
 #define OSNAME_H 1
 
 /* C-Ware License
- * 
+ *
  * Copyright (c) 2022, C-Ware
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright notice, this
  *    list of conditions and the following disclaimer.
- * 
+ *
  * 2. Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- * 
+ *
  * 3. Redistributions of modified source code must append a copyright notice in
  *    the form of 'Copyright <YEAR> <NAME>' to each modified source file's
  *    copyright notice, and the standalone license file if one exists.
- *                                                                                
+ *
  * A "redistribution" can be constituted as any version of the source code
  * that is intended to comprise some other derivative work of this code. A
  * fork created for the purpose of contributing to any version of the source
  * does not constitute a truly "derivative work" and does not require listing.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -37,19 +37,20 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* This enum stores a "best-approximation" OS list */
 enum OSClass {
-	UNIX,
-	WINDOWS,
-	DOS,
-	OS2,
-	S370,
-	DEC,
-	MACINTOSH,
-	AMIGA,
-	OTHER
+	UNIX,       /* UNIX and UNIX-like systems, including POSIX compatibility layers */
+	WINDOWS,    /* Microsoft Windows and its successors, including Win16/3.1 */
+	DOS,        /* Microsoft MS-DOS, IBM PC-DOS DRA DR-DOS */
+	OS2,        /* IBM OS/2 2.x */
+	S370,       /* IBM MVS/370, MVS/SP, MVS/XA, MVS/ESA, OS/390, z/OS, VM/370, VM/SP, VM/ESA, z/VM, VSE/ESA, z/VSE, VSEn */
+	DEC,        /* DEC RSX-11, (Open)VMS, RSTS/E, TOPS-10, TOPS-20 */
+	MACINTOSH,  /* Classic Mac OS (OS X is considered to be a UNIX) */
+	AMIGA,      /* AmigaOS (<4 and 4), MorphOS, AROS */
+	OTHER       /* Placeholder for systems with either partial POSIX compatiblity or is of a class not listed above */
 };
 
-#ifdef _AIX 
+#ifdef _AIX
 #define OSNAME "AIX"
 #define OSCLASS UNIX
 #endif
@@ -206,7 +207,7 @@ enum OSClass {
 #define OSCLASS OTHER
 #endif
 
-#if defined OS2 || defined _OS2 || defined __OS2__ || defined __TOS_OS2__ 
+#if defined OS2 || defined _OS2 || defined __OS2__ || defined __TOS_OS2__
 #define OSNAME "OS/2"
 #define OSCLASS OS2
 #endif
@@ -216,7 +217,7 @@ enum OSClass {
 #define OSCLASS OTHER
 #endif
 
-#if defined __QNX__ || defined __QNXNTO__ 
+#if defined __QNX__ || defined __QNXNTO__
 #define OSNAME "QNX"
 #define OSCLASS UNIX
 #endif
@@ -275,7 +276,7 @@ enum OSClass {
 #define OSNAME "VSE"
 #define OSCLASS S370
 #endif
-#ifndef __MVS__ 
+#ifndef __MVS__
 #define OSNAME "VSE"
 #define OSCLASS S370
 #endif
@@ -291,7 +292,7 @@ enum OSClass {
 #define OSCLASS OTHER
 #endif
 
-#ifdef __MACH__  
+#ifdef __MACH__
 #ifndef __APPLE__
 #define OSNAME "NeXTSTEP"
 #define OSCLASS UNIX
