@@ -245,7 +245,7 @@ enum OSClass {
 #define OSCLASS UNIX
 #endif
 
-#if defined ultrix || defined __ultrix || defined __ultrix__ || __SYSTYPE_BSD
+#if defined ultrix || defined __ultrix || defined __ultrix__ || __SYSTYPE_BSD || __ULTRIX__
 #define OSNAME "ULTRIX"
 #define OSCLASS UNIX
 #endif
