@@ -371,6 +371,10 @@ enum OSClass {
 #			define OSNAME "BSD UNIX"
 #			define OSCLASS UNIX
 #		endif
+#		ifdef _SCO_NAMELEN
+#			define OSNAME "SCO OpenServer/UnixWare"
+#			define OSCLASS UNIX
+#		endif
 #	endif
 #endif
 
