@@ -233,14 +233,13 @@ enum OSClass {
 #endif
 
 #if defined sun || defined __sun
-#	if defined __SVR4 || defined __svr4
-#		define OSNAME "Solaris"
-#		define OSCLASS UNIX
-#	endif
-#	else
-#		define OSNAME "SunOS"
-#		define OSCLASS UNIX
-#	endif
+#   if defined __SVR4 || defined __svr4
+#       define OSNAME "Solaris"
+#       define OSCLASS UNIX
+#   else
+#       define OSNAME "SunOS"
+#       define OSCLASS UNIX
+#   endif
 #endif
 
 #ifdef __VOS__
