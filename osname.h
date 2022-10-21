@@ -38,15 +38,15 @@
  */
 
 /* This enum stores a "best-approximation" OS list */
-#define    OS_UNIX       /* UNIX and UNIX-like systems, including POSIX compatibility layers */
-#define    OS_WINDOWS    /* Microsoft Windows and its successors, including Win16/3.1 */
-#define    OS_DOS        /* Microsoft MS-DOS, IBM PC-DOS DRA DR-DOS */
-#define    OS_OS2        /* IBM OS/2 2.x */
-#define    OS_S370       /* IBM MVS/370, MVS/SP, MVS/XA, MVS/ESA, OS/390, z/OS, VM/370, VM/SP, VM/ESA, z/VM, VSE/ESA, z/VSE, VSEn */
-#define    OS_DEC        /* DEC RSX-11, (Open)VMS, RSTS/E, TOPS-10, TOPS-20 */
-#define    OS_MACINTOSH  /* Classic Mac OS (OS X is considered to be a UNIX) */
-#define    OS_AMIGA      /* AmigaOS (<4 and 4), MorphOS, AROS */
-#define    OS_OTHER      /* Placeholder for systems with either partial POSIX compatiblity or is of a class not listed above */
+#define OS_UNIX 1      /* UNIX and UNIX-like systems, including POSIX compatibility layers */
+#define OS_WINDOWS 2   /* Microsoft Windows and its successors, including Win16/3.1 */
+#define OS_DOS 3       /* Microsoft MS-DOS, IBM PC-DOS DRA DR-DOS */
+#define OS_OS2 4       /* IBM OS/2 2.x */
+#define OS_S370 5      /* IBM MVS/370, MVS/SP, MVS/XA, MVS/ESA, OS/390, z/OS, VM/370, VM/SP, VM/ESA, z/VM, VSE/ESA, z/VSE, VSEn */
+#define OS_DEC 6       /* DEC RSX-11, (Open)VMS, RSTS/E, TOPS-10, TOPS-20 */
+#define OS_MACINTOSH 7 /* Classic Mac OS (OS X is considered to be a UNIX) */
+#define OS_AMIGA 8     /* AmigaOS (<4 and 4), MorphOS, AROS */
+#define OS_OTHER 9     /* Placeholder for systems with either partial POSIX compatiblity or is of a class not listed above */
 
 #ifdef _AIX
 #    define OSNAME "AIX"
