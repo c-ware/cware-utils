@@ -227,19 +227,14 @@ enum OSClass {
 #	define OSCLASS UNIX
 #endif
 
-#ifdef M_I386
-#	define OSNAME "SCO UNIX"
-#	define OSCLASS UNIX
-#endif
-
 #if defined sun || defined __sun
-#   if defined __SVR4 || defined __svr4
-#       define OSNAME "Solaris"
-#       define OSCLASS UNIX
-#   else
-#       define OSNAME "SunOS"
-#       define OSCLASS UNIX
-#   endif
+#	if defined __SVR4 || defined __svr4
+#		define OSNAME "Solaris"
+#		define OSCLASS UNIX
+#	else
+#		define OSNAME "SunOS"
+#		define OSCLASS UNIX
+#	endif
 #endif
 
 #ifdef __VOS__
@@ -252,14 +247,19 @@ enum OSClass {
 #	define OSCLASS UNIX
 #endif
 
-#if defined ultrix || defined __ultrix || defined __ultrix__ || __SYSTYPE_BSD || __ULTRIX__
+#if defined ultrix || defined __ultrix || defined __ultrix__ || defined __SYSTYPE_BSD || defined __ULTRIX__
 #	define OSNAME "ULTRIX"
 #	define OSCLASS UNIX
 #endif
 
-#if defined sco || defined _UNIXWARE7
-#	define OSNAME "UnixWare"
-#	define OSCLASS UNIX
+#if defined sco 
+#   if defined _UNIXWARE7
+#	    define OSNAME "UnixWare"
+#	    define OSCLASS UNIX
+#   else
+#       define OSNAME "OpenServer"
+#       define OSCLASS UNIX
+#   endif
 #endif
 
 #if defined VMS || defined __VMS
