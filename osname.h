@@ -364,10 +364,6 @@
 #            define OSNAME "4.4 BSD"
 #            define OSCLASS OS_UNIX
 #        endif
-#        ifdef BSD
-#            define OSNAME "BSD UNIX"
-#            define OSCLASS OS_UNIX
-#        endif
 #        ifdef _SCO_NAMELEN
 #            define OSNAME "SCO OpenServer/UnixWare"
 #            define OSCLASS OS_UNIX
