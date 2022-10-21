@@ -38,131 +38,129 @@
  */
 
 /* This enum stores a "best-approximation" OS list */
-enum OSClass {
-    UNIX,       /* UNIX and UNIX-like systems, including POSIX compatibility layers */
-    WINDOWS,    /* Microsoft Windows and its successors, including Win16/3.1 */
-    DOS,        /* Microsoft MS-DOS, IBM PC-DOS DRA DR-DOS */
-    OS2,        /* IBM OS/2 2.x */
-    S370,       /* IBM MVS/370, MVS/SP, MVS/XA, MVS/ESA, OS/390, z/OS, VM/370, VM/SP, VM/ESA, z/VM, VSE/ESA, z/VSE, VSEn */
-    DEC,        /* DEC RSX-11, (Open)VMS, RSTS/E, TOPS-10, TOPS-20 */
-    MACINTOSH,  /* Classic Mac OS (OS X is considered to be a UNIX) */
-    AMIGA,      /* AmigaOS (<4 and 4), MorphOS, AROS */
-    OTHER       /* Placeholder for systems with either partial POSIX compatiblity or is of a class not listed above */
-};
+#define    OS_UNIX       /* UNIX and UNIX-like systems, including POSIX compatibility layers */
+#define    OS_WINDOWS    /* Microsoft Windows and its successors, including Win16/3.1 */
+#define    OS_DOS        /* Microsoft MS-DOS, IBM PC-DOS DRA DR-DOS */
+#define    OS_OS2        /* IBM OS/2 2.x */
+#define    OS_S370       /* IBM MVS/370, MVS/SP, MVS/XA, MVS/ESA, OS/390, z/OS, VM/370, VM/SP, VM/ESA, z/VM, VSE/ESA, z/VSE, VSEn */
+#define    OS_DEC        /* DEC RSX-11, (Open)VMS, RSTS/E, TOPS-10, TOPS-20 */
+#define    OS_MACINTOSH  /* Classic Mac OS (OS X is considered to be a UNIX) */
+#define    OS_AMIGA      /* AmigaOS (<4 and 4), MorphOS, AROS */
+#define    OS_OTHER      /* Placeholder for systems with either partial POSIX compatiblity or is of a class not listed above */
 
 #ifdef _AIX
 #    define OSNAME "AIX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __ANDROID__
 #    define OSNAME "Android"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef UTS
 #    define OSNAME "UTS"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef aegis
 #    define OSNAME "Aegis"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __BEOS__
 #    define OSNAME "BeOS"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef __FreeBSD__
 #    define OSNAME "FreeBSD"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __NetBSD__
 #    define OSNAME "NetBSD"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __OpenBSD__
 #    define OSNAME "OpenBSD"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __bsdi__
 #    define OSNAME "BSD/OS"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __DragonFly__
 #    define OSNAME "DragonFly BSD"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __convex__
 #    define OSNAME "ConvexOS"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __CYGWIN__
 #    define OSNAME "Windows NT (Cygwin)"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined __DGUX__ || DGUX
 #    define OSNAME "DG/UX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined __SEQUENT__ || sequent
 #    define OSNAME "DYNIX/ptx"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __ECOS
 #    define OSNAME "eCos"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef __EMX__
 #    define OSNAME "OS/2 (EMX)"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __gnu_hurd__
 #    define OSNAME "GNU/Hurd"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined __gnu_linux__ || defined __linux__ || defined linux
 #    define OSNAME "GNU/Linux"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined _hpux || defined hpux || defined __hpux
 #    define OSNAME "HP-UX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __OS400__
 #    define OSNAME "OS/400"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined __sgi || defined sgi
 #    define OSNAME "IRIX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef __INTEGRITY
 #    define OSNAME "INTEGRITY"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef __Lynx__
 #    define OSNAME "LynxOS"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined macintosh || defined Macintosh
@@ -173,181 +171,181 @@ enum OSClass {
 #ifdef __APPLE__
 #    ifdef __MACH
 #        define OSNAME "Mac OS X"
-#        define OSCLASS UNIX
+#        define OSCLASS OS_UNIX
 #    endif
 #endif
 
 #if defined __OS9000 || defined _OSK
 #    define OSNAME "OS-9"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef __MORPHOS__
 #    define OSNAME "MorphOS"
-#    define OSCLASS AMIGA
+#    define OSCLASS OS_AMIGA
 #endif
 
 #ifdef __AROS__
 #    define OSNAME "AROS"
-#    define OSCLASS AMIGA
+#    define OSCLASS OS_AMIGA
 #endif
 
 #if defined AMIGA || defined __amigaos__
 #    define OSNAME "AmigaOS"
-#    define OSCLASS AMIGA
+#    define OSCLASS OS_AMIGA
 #endif
 
 #if defined mpeix || defined __mpexl
 #    define OSNAME "MPE/iX"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined MSDOS || defined __MSDOS__ || defined _MSDOS || defined __DOS__
 #    define OSNAME "MS-DOS"
-#    define OSCLASS DOS
+#    define OSCLASS OS_DOS
 #endif
 
 #ifdef __TANDEM
 #    define OSNAME "NonStop OS"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined OS2 || defined _OS2 || defined __OS2__ || defined __TOS_OS2__
 #    define OSNAME "OS/2"
-#    define OSCLASS OS2
+#    define OSCLASS OS_OS2
 #endif
 
 #ifdef EPLAN9
 #    define OSNAME "Plan 9"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined __QNX__ || defined __QNXNTO__
 #    define OSNAME "QNX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined sun || defined __sun
 #    if defined __SVR4 || defined __svr4
 #        define OSNAME "Solaris"
-#        define OSCLASS UNIX
+#        define OSCLASS OS_UNIX
 #    else
 #        define OSNAME "SunOS"
-#        define OSCLASS UNIX
+#        define OSCLASS OS_UNIX
 #    endif
 #endif
 
 #ifdef __VOS__
 #    define OSNAME "VOS"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined __osf__ || defined __osf
 #    define OSNAME "OSF/1"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined ultrix || defined __ultrix || defined __ultrix__ || defined __SYSTYPE_BSD || defined __ULTRIX__
 #    define OSNAME "ULTRIX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined sco 
 #   if defined _UNIXWARE7
 #       define OSNAME "UnixWare"
-#       define OSCLASS UNIX
+#       define OSCLASS OS_UNIX
 #   else
 #       define OSNAME "OpenServer"
-#       define OSCLASS UNIX
+#       define OSCLASS OS_UNIX
 #   endif
 #endif
 
 #if defined VMS || defined __VMS
 #    define OSNAME "VMS"
-#    define OSCLASS VMS
+#    define OSCLASS OS_VMS
 #endif
 
 #ifdef __VM__
 #    define OSNAME "VM/CMS"
-#    define OSCLASS S370
+#    define OSCLASS OS_S370
 #endif
 
 #ifdef __MVS__
 #    define OSNAME "MVS"
-#    define OSCLASS S370
+#    define OSCLASS OS_S370
 #endif
 
 #ifdef __EDC_LE
 #    ifndef __VM__
 #        define OSNAME "VSE"
-#        define OSCLASS S370
+#        define OSCLASS OS_S370
 #    endif
 #    ifndef __MVS__
 #        define OSNAME "VSE"
-#        define OSCLASS S370
+#        define OSCLASS OS_S370
 #    endif
 #endif
 
 #if defined __MCP__
 #    define OSNAME "MCP"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #if defined _NETWARE_ || defined __NETWARE__
 #    define OSNAME "NetWare"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef __MACH__
 #    ifndef __APPLE__
 #        define OSNAME "NeXTSTEP"
-#        define OSCLASS UNIX
+#        define OSCLASS OS_UNIX
 #    endif
 #endif
 
 #ifdef pyr
 #    define OSNAME "DC/OSx"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined sinux || defined sinix
 #    define OSNAME "Reliant UNIX"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef _UNICOS
 #    define OSNAME "UNICOS"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #if defined _CRAY || defined _crayx1
 #    define OSNAME "UNICOS/mp"
-#    define OSCLASS UNIX
+#    define OSCLASS OS_UNIX
 #endif
 
 #ifdef _UWIN
 #    define OSNAME "Windows NT (U/Win)"
-#    define OSCLASS WINDOWS
+#    define OSCLASS OS_WINDOWS
 #endif
 
 #if defined __VXWORKS__ || defined __vxworks
 #    define OSNAME "VxWorks"
-#    define OSCLASS OTHER
+#    define OSCLASS OS_OTHER
 #endif
 
 #ifdef _WIN32_WCE
 #    define OSNAME "Windows CE"
-#    define OSCLASS WINDOWS
+#    define OSCLASS OS_WINDOWS
 #endif
 
 #if defined _WIN32 | defined _WIN64 | defined __WIN32__
 #    define OSNAME "Windows NT"
-#    define OSCLASS WINDOWS
+#    define OSCLASS OS_WINDOWS
 #endif
 
 #ifdef _WIN16
 #    define OSNAME "Windows 3.x"
-#    define OSCLASS WINDOWS
+#    define OSCLASS OS_WINDOWS
 #endif
 
 /* This tests for 4.x BSD */
@@ -356,23 +354,23 @@ enum OSClass {
 #    include <sys/param.h>
 #        ifdef BSD4_2
 #            define OSNAME "4.2 BSD"
-#            define OSCLASS UNIX
+#            define OSCLASS OS_UNIX
 #        endif
 #        ifdef BSD4_3
 #            define OSNAME "4.3 BSD"
-#            define OSCLASS UNIX
+#            define OSCLASS OS_UNIX
 #        endif
 #        ifdef BSD4_4
 #            define OSNAME "4.4 BSD"
-#            define OSCLASS UNIX
+#            define OSCLASS OS_UNIX
 #        endif
 #        ifdef BSD
 #            define OSNAME "BSD UNIX"
-#            define OSCLASS UNIX
+#            define OSCLASS OS_UNIX
 #        endif
 #        ifdef _SCO_NAMELEN
 #            define OSNAME "SCO OpenServer/UnixWare"
-#            define OSCLASS UNIX
+#            define OSCLASS OS_UNIX
 #        endif
 #    endif
 #endif
