@@ -338,9 +338,19 @@
 #    define OSCLASS OS_WINDOWS
 #endif
 
-#if defined _WIN32 | defined _WIN64 | defined __WIN32__
-#    define OSNAME "Windows NT"
-#    define OSCLASS OS_WINDOWS
+/* Double-test to weed out NT POSIX subsystem */
+#if defined _WIN32 || defined _WIN64 || defined __WIN32__
+#    ifndef _POSIX
+#        define OSNAME "Windows NT"
+#        define OSCLASS OS_WINDOWS
+#    endif
+#endif
+
+#if defined _WIN32
+#    if defined _POSIX
+#        define OSNAME "Windows NT (POSIX subsystem)"
+#        define OSCLASS OS_WINDOWS
+#    endif
 #endif
 
 #ifdef _WIN16
